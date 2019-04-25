@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Service Cognitive</title>
+        <!-- Favicons-->
+        <link rel="icon" href="resources/icon/Azure-Cognitive-Services.png" sizes="32x32"/>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <!--Other CSS and JS-->
+        <link href="resources/css/materialize.min.css" rel="stylesheet" type="text/css"/>
+        <link href="resources/css/style.css" rel="stylesheet" type="text/css"/>
+        <script src="resources/js/jsfcrud.js" type="text/javascript"></script>
+        <!--***-->
+        <!--CSS and JS-->
+        <link href="resources/css/layout-dark-green.css" rel="stylesheet" type="text/css"/>
+        <h:outputStylesheet name="css/theme-dark-green.css"/>
+        <link href="resources/css/fontawesome-all.css" rel="stylesheet" type="text/css"/>
+        <link href="resources/css/components.css" rel="stylesheet" type="text/css"/>
+        <script src="resources/js/core.js" type="text/javascript"></script>
+        <script src="resources/js/components.js" type="text/javascript"></script>
+        <script src="resources/js/touchswipe.js" type="text/javascript"></script>
+        <link href="resources/css/schedule.css" rel="stylesheet" type="text/css"/>
+        <script src="resources/js/moment.js" type="text/javascript"></script>
+        <script src="resources/js/schedule.js" type="text/javascript"></script>
+        <link href="resources/css/nanoscroller.css" rel="stylesheet" type="text/css"/>
+        <link href="resources/css/animate.css" rel="stylesheet" type="text/css"/>
+        <link href="resources/css/ripple.css" rel="stylesheet" type="text/css"/>
+        <link href="resources/css/IconMaterialize.css" rel="stylesheet" type="text/css"/>
+        <link href="resources/css/FontsMaterialize.css" rel="stylesheet" type="text/css"/>
+        <script src="resources/js/nanoscroller.js" type="text/javascript"></script>
+        <script src="resources/js/layout.js" type="text/javascript"></script>
+        <script src="resources/js/core.js" type="text/javascript"></script>
+        <script src="resources/js/components.js" type="text/javascript"></script>
+        <script src="resources/js/swipe.js" type="text/javascript"></script>
+        <script src="resources/js/ripple.js" type="text/javascript"></script>
+        <!--***-->        
+    </h:head>
+    <h:body>
+        <h:form id="form">
+            <p:growl id="msg">
+                <p:autoUpdate/>
+            </p:growl>
+            <div class="container">
+                <br/>
+                <div class="row">
+                    <div class="col l5 m5 s5">
+                        <div class="md-inputfield">
+                            <p:inputText class="input-block" value="#{restControl.urlImagen}" required="true" requiredMessage="Ingrese Link de la Imagen"/>
+                            <p:outputLabel value="Link de la Imagen" />
+                        </div>
+                    </div>
+                    <div class="col l1 m1 s1">
+                        <p:commandButton id="btnConsultar" value="Consultar" actionListener="#{restControl.consultar()}" update="form"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col l6 m6 s6">
+                        <img src="#{restControl.urlImagenAnalizada}" width="100%"/>
+                    </div>
+                    <div class="col l6 m6 s6">
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <spam style="font-size: 50px;">#{restControl.resultado}</spam>
+                    </div>
+
+                </div>
+            </div>
+            <br/>
+            <p:blockUI block="form" trigger="btnConsultar" />
+        </h:form>
+    </h:body>
+</html>
+
